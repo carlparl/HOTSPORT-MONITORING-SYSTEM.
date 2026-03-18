@@ -1,0 +1,16 @@
+5. Start MongoDB.
+6. Run `npm start` in `api`.
+7. Open `admin-dashboard/index.html` in a browser (or use a static server like `live-server`).
+8. For the captive portal, open `captive-portal/login.html`.
+
+## Usage
+- Admin: create vouchers, view active users, check payments.
+- Customers: enter voucher code or buy a package to get WiFi access.
+
+## Customisation
+- Modify `portal-styles.css` to change colours.
+- Adjust prices and packages in `portal-scripts.js` and backend logic.
+- Replace simulated API calls with real integration to MikroTik.
+
+## Support
+For questions, contact support@hotspotpro.ug

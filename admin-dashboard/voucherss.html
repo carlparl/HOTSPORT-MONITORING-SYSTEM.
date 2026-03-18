@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vouchers - HotSpot Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-wifi"></i>
+                <h1>HotSpot<span>Pro</span></h1>
+            </div>
+            <div class="user-info">
+                <div class="avatar">MK</div>
+                <div class="user-details">
+                    <h3>Martin King</h3>
+                    <p>Administrator</p>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="active"><a href="vouchers.html"><i class="fas fa-ticket-alt"></i> Vouchers</a></li>
+                <li><a href="users.html"><i class="fas fa-users"></i> Active Users</a></li>
+                <li><a href="payments.html"><i class="fas fa-credit-card"></i> Payments</a></li>
+                <li><a href="router.html"><i class="fas fa-router"></i> Router</a></li>
+                <li><a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a></li>
+            </ul>
+            <div class="system-status">
+                <div class="status-indicator online"></div>
+                <span>System Online</span>
+                <small>99.9% Uptime</small>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search vouchers...">
+                </div>
+                <div class="header-actions">
+                    <button class="btn-notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="btn-create" id="createVoucherBtn">
+                        <i class="fas fa-plus"></i> Create Voucher
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Title -->
+            <h1 style="margin-bottom: 20px; color: var(--dark);">Voucher Management</h1>
+
+            <!-- Voucher Table -->
+            <div style="background: white; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                <table style="width:100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #e5e7eb; text-align: left;">
+                            <th style="padding: 15px;">Code</th>
+                            <th style="padding: 15px;">Price (UGX)</th>
+                            <th style="padding: 15px;">Duration</th>
+                            <th style="padding: 15px;">Status</th>
+                            <th style="padding: 15px;">Created</th>
+                            <th style="padding: 15px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #e5e7eb;">
+                            <td style="padding: 15px;">0712ABCD</td>
+                            <td style="padding: 15px;">1,000</td>
+                            <td style="padding: 15px;">24 hours</td>
+                            <td style="padding: 15px;"><span style="background: #d1fae5; color: #065f46; padding: 5px 10px; border-radius: 20px;">Active</span></td>
+                            <td style="padding: 15px;">2025-03-17</td>
+                            <td style="padding: 15px;">
+                                <button class="btn-action" style="background: none; border: none; color: var(--primary); cursor: pointer;"><i class="fas fa-edit"></i></button>
+                                <button class="btn-action" style="background: none; border: none; color: var(--danger); cursor: pointer;"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e5e7eb;">
+                            <td style="padding: 15px;">0713EFGH</td>
+                            <td style="padding: 15px;">500</td>
+                            <td style="padding: 15px;">4 hours</td>
+                            <td style="padding: 15px;"><span style="background: #fee2e2; color: #991b1b; padding: 5px 10px; border-radius: 20px;">Used</span></td>
+                            <td style="padding: 15px;">2025-03-16</td>
+                            <td style="padding: 15px;">
+                                <button class="btn-action" style="background: none; border: none; color: var(--primary); cursor: pointer;"><i class="fas fa-edit"></i></button>
+                                <button class="btn-action" style="background: none; border: none; color: var(--danger); cursor: pointer;"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Quick Create Form (popup or inline) -->
+            <div id="createVoucherModal" style="display: none; position: fixed; top: 0; left: 0; width:100%; height:100%; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000;">
+                <div style="background: white; padding: 30px; border-radius: 20px; width: 400px;">
+                    <h3 style="margin-bottom: 20px;">Create New Voucher</h3>
+                    <label>Price (UGX)</label>
+                    <input type="number" id="voucherPrice" style="width:100%; padding: 10px; margin-bottom: 15px; border: 2px solid #e5e7eb; border-radius: 10px;">
+                    <label>Duration</label>
+                    <select id="voucherDuration" style="width:100%; padding: 10px; margin-bottom: 15px; border: 2px solid #e5e7eb; border-radius: 10px;">
+                        <option value="4h">4 hours</option>
+                        <option value="24h">24 hours</option>
+                        <option value="7d">7 days</option>
+                        <option value="30d">30 days</option>
+                    </select>
+                    <label>Number of Vouchers</label>
+                    <input type="number" id="voucherCount" value="1" min="1" style="width:100%; padding: 10px; margin-bottom: 15px; border: 2px solid #e5e7eb; border-radius: 10px;">
+                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                        <button onclick="closeModal()" style="padding: 10px 20px; background: #e5e7eb; border: none; border-radius: 10px; cursor: pointer;">Cancel</button>
+                        <button onclick="createVouchers()" style="padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 10px; cursor: pointer;">Create</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Simple modal handling
+        document.getElementById('createVoucherBtn').addEventListener('click', function() {
+            document.getElementById('createVoucherModal').style.display = 'flex';
+        });
+
+        function closeModal() {
+            document.getElementById('createVoucherModal').style.display = 'none';
+        }
+
+        function createVouchers() {
+            const price = document.getElementById('voucherPrice').value;
+            const duration = document.getElementById('voucherDuration').value;
+            const count = document.getElementById('voucherCount').value;
+            alert(`Creating ${count} voucher(s) at UGX ${price} for ${duration} (demo).`);
+            // In real app, call API
+            closeModal();
+        }
+    </script>
+</body>
+</html>

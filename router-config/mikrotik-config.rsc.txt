@@ -1,0 +1,32 @@
+# HotSpot Pro MikroTik Configuration
+# Set WAN interface (ether1) and LAN bridge
+/interface bridge add name=bridge1
+/interface ethernet set [find default-name=ether1] name=wan
+/interface ethernet set [find default-name=ether2] master-port=ether1
+/interface ethernet set [find default-name=ether3] master-port=ether1
+/interface ethernet set [find default-name=ether4] master-port=ether1
+/interface ethernet set [find default-name=ether5] master-port=ether1
+
+# Wireless settings
+/interface wireless set [find default-name=wlan1] band=2ghz-b/g/n \
+    channel-width=20/40mhz-XX country=uganda disabled=no frequency=auto \
+    mode=ap-bridge ssid="HotSpot Pro" wireless-protocol=802.11
+
+# IP address
+/ip address add address=192.168.88.1/24 network=192.168.88.0 interface=bridge1
+
+# DHCP server
+/ip pool add name=hotspot-pool ranges=192.168.88.10-192.168.88.254
+/ip dhcp-server add address-pool=hotspot-pool disabled=no interface=bridge1 name=dhcp1
+
+# HotSpot
+/ip hotspot profile add dns-name=hotspotpro.local html-directory=hotspot \
+    hotspot-address=192.168.88.1 name=hsprof1
+/ip hotspot add interface=wlan1 name=hs1 profile=hsprof1
+
+# Firewall NAT
+/ip firewall nat add chain=srcnat action=masquerade out-interface=wan
+
+# Optional: RADIUS if using external auth
+/radius add address=192.168.88.10 secret=testing123 service=hotspot
+/ip hotspot profile set hsprof1 use-radius=yes

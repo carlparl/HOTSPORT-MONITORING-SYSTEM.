@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotSpot Pro - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-wifi"></i>
+                <h1>HotSpot<span>Pro</span></h1>
+            </div>
+            <div class="user-info">
+                <div class="avatar">MK</div>
+                <div class="user-details">
+                    <h3>Martin King</h3>
+                    <p>Administrator</p>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="active"><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="vouchers.html"><i class="fas fa-ticket-alt"></i> Vouchers</a></li>
+                <li><a href="users.html"><i class="fas fa-users"></i> Active Users</a></li>
+                <li><a href="payments.html"><i class="fas fa-credit-card"></i> Payments</a></li>
+                <li><a href="router.html"><i class="fas fa-router"></i> Router</a></li>
+                <li><a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a></li>
+            </ul>
+            <div class="system-status">
+                <div class="status-indicator online"></div>
+                <span>System Online</span>
+                <small>99.9% Uptime</small>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search transactions, users, or vouchers...">
+                </div>
+                <div class="header-actions">
+                    <button class="btn-notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <button class="btn-create" onclick="location.href='vouchers.html'">
+                        <i class="fas fa-plus"></i> Create Voucher
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card revenue">
+                    <div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <div class="stat-info">
+                        <h3>UGX 439,052</h3>
+                        <p>Total Revenue</p>
+                        <span class="trend up">↑ 12.5% this month</span>
+                    </div>
+                </div>
+                <div class="stat-card users">
+                    <div class="stat-icon"><i class="fas fa-user-check"></i></div>
+                    <div class="stat-info">
+                        <h3>13</h3>
+                        <p>Active Users</p>
+                        <span class="trend up">↑ 3 today</span>
+                    </div>
+                </div>
+                <div class="stat-card vouchers">
+                    <div class="stat-icon"><i class="fas fa-ticket-alt"></i></div>
+                    <div class="stat-info">
+                        <h3>156</h3>
+                        <p>Vouchers Sold</p>
+                        <span class="trend down">↓ 5% from yesterday</span>
+                    </div>
+                </div>
+                <div class="stat-card uptime">
+                    <div class="stat-icon"><i class="fas fa-server"></i></div>
+                    <div class="stat-info">
+                        <h3>99.9%</h3>
+                        <p>System Uptime</p>
+                        <span class="trend stable">Stable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Revenue Analytics</h3>
+                        <select class="chart-filter">
+                            <option>This Week</option>
+                            <option>This Month</option>
+                            <option>This Year</option>
+                        </select>
+                    </div>
+                    <div class="chart" id="revenueChart">
+                        <div class="chart-placeholder">
+                            <div class="bar" style="height:80%; background:linear-gradient(180deg,#667eea,#764ba2)"></div>
+                            <div class="bar" style="height:65%; background:linear-gradient(180deg,#f093fb,#f5576c)"></div>
+                            <div class="bar" style="height:90%; background:linear-gradient(180deg,#4facfe,#00f2fe)"></div>
+                            <div class="bar" style="height:75%; background:linear-gradient(180deg,#43e97b,#38f9d7)"></div>
+                            <div class="bar" style="height:85%; background:linear-gradient(180deg,#667eea,#764ba2)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>User Activity</h3>
+                        <select class="chart-filter">
+                            <option>24 Hours</option>
+                            <option>7 Days</option>
+                            <option>30 Days</option>
+                        </select>
+                    </div>
+                    <div class="chart" id="usersChart">
+                        <div class="line-chart-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <div class="section-header">
+                    <h3>Recent Activity</h3>
+                    <a href="#" class="view-all">View All →</a>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item success">
+                        <div class="activity-icon"><i class="fas fa-money-check-alt"></i></div>
+                        <div class="activity-details">
+                            <h4>Payment Received</h4>
+                            <p>UGX 25,000 • Monthly Package</p>
+                            <span>2 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item info">
+                        <div class="activity-icon"><i class="fas fa-user-plus"></i></div>
+                        <div class="activity-details">
+                            <h4>New User Connected</h4>
+                            <p>0757rxa • Full Day Package</p>
+                            <span>5 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item warning">
+                        <div class="activity-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="activity-details">
+                            <h4>Router Alert</h4>
+                            <p>High CPU Usage Detected</p>
+                            <span>15 minutes ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-buttons">
+                    <button class="action-btn" onclick="location.href='vouchers.html'">
+                        <i class="fas fa-plus-circle"></i><span>Create Voucher</span>
+                    </button>
+                    <button class="action-btn" onclick="window.open('vouchers.html?print','_blank')">
+                        <i class="fas fa-print"></i><span>Print Vouchers</span>
+                    </button>
+                    <button class="action-btn" onclick="exportReports()">
+                        <i class="fas fa-download"></i><span>Export Reports</span>
+                    </button>
+                    <button class="action-btn" onclick="restartRouter()">
+                        <i class="fas fa-redo"></i><span>Restart Router</span>
+                    </button>
+                    <button class="action-btn" onclick="location.href='#support'">
+                        <i class="fas fa-headset"></i><span>Support Ticket</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

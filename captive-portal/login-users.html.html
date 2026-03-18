@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotSpot Pro - Connect</title>
+    <link rel="stylesheet" href="portal-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="portal-container">
+        <div class="background-animation">
+            <div class="circle"></div><div class="circle"></div><div class="circle"></div>
+        </div>
+        <div class="portal-content">
+            <header class="portal-header">
+                <div class="logo"><i class="fas fa-wifi"></i><h1>HotSpot<span>Pro</span></h1></div>
+                <div class="connection-status"><i class="fas fa-signal"></i> Strong Signal</div>
+            </header>
+            <section class="welcome-section">
+                <h2>Welcome to High‑Speed WiFi</h2>
+                <p>Connect to our premium internet service. Fast, reliable, and unlimited browsing.</p>
+                <div class="speed-test">
+                    <div class="speed-item"><i class="fas fa-download"></i><div><h4>50 Mbps</h4><small>Download</small></div></div>
+                    <div class="speed-item"><i class="fas fa-upload"></i><div><h4>20 Mbps</h4><small>Upload</small></div></div>
+                    <div class="speed-item"><i class="fas fa-clock"></i><div><h4>< 20ms</h4><small>Ping</small></div></div>
+                </div>
+            </section>
+            <section class="login-options">
+                <div class="option-tabs">
+                    <button class="tab-btn active" data-tab="voucher"><i class="fas fa-ticket-alt"></i> Voucher</button>
+                    <button class="tab-btn" data-tab="package"><i class="fas fa-shopping-cart"></i> Buy Package</button>
+                    <button class="tab-btn" data-tab="trial"><i class="fas fa-star"></i> Free Trial</button>
+                </div>
+                <!-- Voucher Tab -->
+                <div class="tab-content active" id="voucher-tab">
+                    <h3>Enter Voucher Code</h3>
+                    <input type="text" id="voucher-code" maxlength="8" placeholder="e.g., 0712ABCD">
+                    <button class="btn-connect" onclick="connectWithVoucher()">Connect</button>
+                </div>
+                <!-- Package Tab -->
+                <div class="tab-content" id="package-tab">
+                    <div class="packages-grid">
+                        <div class="package-card"><h4>4 HOURS</h4><div class="price">UGX 500</div><button onclick="buyPackage('4h',500)">Buy</button></div>
+                        <div class="package-card"><h4>FULL DAY</h4><div class="price">UGX 1,000</div><button onclick="buyPackage('24h',1000)">Buy</button></div>
+                        <div class="package-card"><h4>WEEKLY</h4><div class="price">UGX 6,000</div><button onclick="buyPackage('7d',6000)">Buy</button></div>
+                    </div>
+                </div>
+                <!-- Trial Tab -->
+                <div class="tab-content" id="trial-tab">
+                    <h3>30 Minutes Free Trial</h3>
+                    <button onclick="startTrial()">Start Trial</button>
+                </div>
+            </section>
+            <footer class="portal-footer">
+                <p>Need help? Call 0770 529 115 or email support@hotspotpro.ug</p>
+                <p>© 2025 HotSpot Pro. All prices in UGX.</p>
+            </footer>
+        </div>
+    </div>
+    <script src="portal-scripts.js"></script>
+</body>
+</html>
